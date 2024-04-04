@@ -1,16 +1,10 @@
 import Heading from "@/app/components/Heading/Heading";
-import StatusItem from "@/app/components/StatusItem/StatusItem";
 import TableTitle from "@/app/components/TableTitle/TableTitle";
 import TableHeader from "@/app/components/TableHeader/TableHeader";
 import TableData from "@/app/components/TableData/TableData";
-import {
-  IconCurrencyDollar,
-  IconLocationDollar,
-  IconShoppingCartDollar,
-  IconTicket,
-} from "@tabler/icons-react";
+import Pagination from "@/app/components/Pagination/Pagination";
 
-export default function DashboardTemplate() {
+export default function TableTemplate() {
   return (
     <main id="page-content" className="flex max-w-full flex-auto flex-col">
       {/* <!-- Page Heading --> */}
@@ -20,40 +14,6 @@ export default function DashboardTemplate() {
       {/* <!-- Page Section --> */}
       <div className="container mx-auto p-4 lg:p-8 xl:max-w-7xl">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          {/* <!-- Quick Statistics --> */}
-          <StatusItem
-            value="3"
-            label="Sales"
-            description="Total number of sales"
-          >
-            <IconCurrencyDollar size={26} />
-          </StatusItem>
-          <StatusItem
-            value="3"
-            label="Locations"
-            icon="none"
-            description="Total number of locations"
-          >
-            <IconLocationDollar size={26} />
-          </StatusItem>
-          <StatusItem
-            value="3"
-            label="Sales"
-            icon="none"
-            description="Total number of sales online"
-          >
-            <IconShoppingCartDollar size={26} />
-          </StatusItem>
-          <StatusItem
-            value="3"
-            label="Sales"
-            icon="none"
-            description="Using coupon"
-          >
-            <IconTicket size={26} />
-          </StatusItem>
-          {/* <!-- END Quick Statistics --> */}
-
           {/* <!-- Table Title --> */}
           <div className="flex flex-col rounded-lg border bg-white sm:col-span-2 lg:col-span-4">
             <div className="flex flex-col items-center justify-between gap-4 border-b border-neutral-100 p-5 text-center sm:flex-row sm:text-start">
@@ -97,6 +57,7 @@ export default function DashboardTemplate() {
               {/* <!-- END Responsive Table Container --> */}
             </div>
           </div>
+          <Pagination />
           {/* <!-- END Tickets --> */}
         </div>
       </div>
