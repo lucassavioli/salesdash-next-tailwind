@@ -2,110 +2,158 @@ export default function Form() {
   return (
     <>        
         <form action="#" className="p-16">
-          <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-            <div class="sm:col-span-2">
+          <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">            
+            <div class="w-full">
               <label
-                for="name"
+                for="first_name"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Product Name
+                First Name
               </label>
               <input
                 type="text"
-                name="name"
-                id="name"
+                name="first_name"
+                id="first_name"                
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Type product name"
-                required=""
+                readOnly
               />
             </div>
             <div class="w-full">
               <label
-                for="brand"
+                for="last_name"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Brand
+                Last Name
               </label>
               <input
                 type="text"
-                name="brand"
-                id="brand"
+                name="last_name"
+                id="last_name"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Product brand"
-                required=""
+                readOnly
+              />
+            </div>            
+            <div class="w-full">
+              <label
+                for="gender"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Gender
+              </label>
+              <input
+                type="text"
+                name="gender"
+                id="gender"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"                
+                readOnly
               />
             </div>
             <div class="w-full">
               <label
-                for="price"
+                for="age"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Price
+                Age
               </label>
               <input
-                type="number"
-                name="price"
-                id="price"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="$2999"
-                required=""
+                type="text"
+                name="age"
+                id="age"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"                
+                readOnly
               />
             </div>
-            <div>
+            <div class="w-full">
               <label
-                for="category"
+                for="address"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Category
-              </label>
-              <select
-                id="category"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              >
-                <option selected="">Select category</option>
-                <option value="TV">TV/Monitors</option>
-                <option value="PC">PC</option>
-                <option value="GA">Gaming/Console</option>
-                <option value="PH">Phones</option>
-              </select>
-            </div>
-            <div>
-              <label
-                for="item-weight"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Item Weight (kg)
+                Address
               </label>
               <input
-                type="number"
-                name="item-weight"
-                id="item-weight"
+                type="text"
+                name="address"
+                id="address"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="12"
-                required=""
+                readOnly
               />
             </div>
-            <div class="sm:col-span-2">
+            <div class="w-full">
               <label
-                for="description"
+                for="country"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Description
+                Country
               </label>
-              <textarea
-                id="description"
-                rows="8"
-                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Your description here"
-              ></textarea>
+              <input
+                type="text"
+                name="country"
+                id="country"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                readOnly
+              />
             </div>
-          </div>
-          <button
-            type="submit"
-            class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-          >
-            Add product
-          </button>
+            <div class="w-full">
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                E-mail
+              </label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                readOnly
+              />
+            </div>
+            <div class="w-full">
+              <label
+                for="phone"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Phone
+              </label>
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                readOnly
+              />
+            </div>
+            <div class="w-full">
+              <label
+                for="id"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                ID
+              </label>
+              <input
+                type="text"
+                name="id"
+                id="id"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                readOnly
+              />
+            </div>
+            <div class="w-full">
+              <label
+                for="credit_card_provider"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Credit Card Provider
+              </label>
+              <input
+                type="text"
+                name="credit_card_provider"
+                id="credit_card_provider"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                readOnly
+              />
+            </div>
+          </div>          
         </form>
         </>
   );
