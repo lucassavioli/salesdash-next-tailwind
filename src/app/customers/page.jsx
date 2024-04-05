@@ -6,6 +6,7 @@ import StatusItem from "@/app/components/StatusItem/StatusItem";
 import TableTitle from "@/app/components/TableTitle/TableTitle";
 import TableHeader from "@/app/components/TableHeader/TableHeader";
 import TableData from "@/app/components/TableData/TableData";
+import ButtonTable from "@/app/components/UI/ButtonTable";
 import {
   IconCurrencyDollar,
   IconLocationDollar,
@@ -101,6 +102,7 @@ export default function Customers() {
                       <TableHeader title="Last Name" />
                       <TableHeader title="Age" />
                       <TableHeader title="Country" />
+                      <TableHeader title=""/>
                     </tr>
                   </thead>
                   {/* <!-- END Table Header --> */}
@@ -117,6 +119,7 @@ export default function Customers() {
                         <TableData value={customer.last_name} />
                         <TableData value={customer.age} />
                         <TableData value={customer.country} />
+                        <ButtonTable title="View" href={`/customers/detail/${customer._id}`}/>
                       </tr>
                     ))}
                   </tbody>

@@ -10,7 +10,7 @@ import {
   IconTicket,
 } from "@tabler/icons-react";
 
-export default function DashboardTemplate() {
+export default function Dashboard() {
   return (
     <main id="page-content" className="flex max-w-full flex-auto flex-col">
       {/* <!-- Page Heading --> */}
@@ -87,7 +87,7 @@ export default function DashboardTemplate() {
                       <TableData value="23/09/2022" />
                       <TableData value="John Doe" />
                       <TableData value="Lorem ipsum dolor sit amet" />
-                      <TableData value="Open" />
+                      <TableData value="Open" />                      
                     </tr>
                   </tbody>
                   {/* <!-- END Table Body --> */}
