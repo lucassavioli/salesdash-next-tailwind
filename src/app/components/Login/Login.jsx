@@ -42,7 +42,7 @@ export default function Login() {
                 <div className="grow p-5 md:px-16 md:py-12">
                   <form className="space-y-6">
                     <div className="space-y-1">
-                      <label htmlFor="email" className="text-sm font-medium">
+                      <label htmlhtmlFor="email" className="text-sm font-medium">
                         Email
                       </label>
                       <input
@@ -54,7 +54,7 @@ export default function Login() {
                       />
                     </div>
                     <div className="space-y-1">
-                      <label htmlFor="password" className="text-sm font-medium">
+                      <label htmlhtmlFor="password" className="text-sm font-medium">
                         Password
                       </label>
                       <input
