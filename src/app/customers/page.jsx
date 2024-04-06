@@ -14,7 +14,7 @@ import {
   IconTicket,
 } from "@tabler/icons-react";
 
-export default function Dashboard() {
+export default function CustomersDashboard() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
@@ -23,6 +23,7 @@ export default function Dashboard() {
       try {
         const response = await fetch("http://localhost:5000/api/customers");
         const data = await response.json();
+        console.log(data);
         setData(data);
         setLoading(false);
       } catch (error) {
