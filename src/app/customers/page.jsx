@@ -14,7 +14,7 @@ import {
   IconTicket,
 } from "@tabler/icons-react";
 
-export default function Customers() {
+export default function Dashboard() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
