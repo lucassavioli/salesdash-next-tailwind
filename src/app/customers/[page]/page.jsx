@@ -1,10 +1,40 @@
+"use client";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 import Heading from "@/app/components/Heading/Heading";
 import TableTitle from "@/app/components/TableTitle/TableTitle";
 import TableHeader from "@/app/components/TableHeader/TableHeader";
 import TableData from "@/app/components/TableData/TableData";
 import Pagination from "@/app/components/Pagination/Pagination";
+import ButtonTable from "@/app/components/UI/ButtonTable";
 
 export default function Customers() {
+  const params = useParams();
+  const [data, setData] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:5000/api/customers/" + params.page
+        );
+        const data = await response.json();
+        setData(data);
+        setLoading(false);
+        console.log(data.totalPages);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (isLoading) return <p>Loading...</p>;
+  if (!data) return <p>No profile data</p>;
+
   return (
     <main id="page-content" className="flex max-w-full flex-auto flex-col">
       {/* <!-- Page Heading --> */}
@@ -31,24 +61,34 @@ export default function Customers() {
                   {/* <!-- Table Header --> */}
                   <thead>
                     <tr className="border-b-2 border-neutral-100">
-                      <TableHeader title="Ticket ID" />
-                      <TableHeader title="Date" />
-                      <TableHeader title="Customer" />
-                      <TableHeader title="Subject" />
-                      <TableHeader title="Status" />
+                      <TableHeader title="Customer ID" />
+                      <TableHeader title="First Name" />
+                      <TableHeader title="Last Name" />
+                      <TableHeader title="Age" />
+                      <TableHeader title="Country" />
+                      <TableHeader title="" />
                     </tr>
                   </thead>
                   {/* <!-- END Table Header --> */}
 
                   {/* <!-- Table Body --> */}
                   <tbody>
-                    <tr className="border-b border-neutral-100 hover:bg-neutral-50">
-                      <TableData value="1" />
-                      <TableData value="23/09/2022" />
-                      <TableData value="John Doe" />
-                      <TableData value="Lorem ipsum dolor sit amet" />
-                      <TableData value="Open" />
-                    </tr>
+                    {data.customers.map((customer) => (
+                      <tr
+                        key={customer._id}
+                        className="border-b border-neutral-100 hover:bg-neutral-50"
+                      >
+                        <TableData value={customer._id} />
+                        <TableData value={customer.name} />
+                        <TableData value={customer.last_name} />
+                        <TableData value={customer.age} />
+                        <TableData value={customer.country} />
+                        <ButtonTable
+                          title="View"
+                          href={`/customers/detail/${customer._id}`}
+                        />
+                      </tr>
+                    ))}
                   </tbody>
                   {/* <!-- END Table Body --> */}
                 </table>
@@ -57,7 +97,11 @@ export default function Customers() {
               {/* <!-- END Responsive Table Container --> */}
             </div>
           </div>
-          <Pagination />
+          <Pagination
+            currentPage={params.page}
+            lastPage={data.totalPages}
+            href={"/customers/"}
+          />
           {/* <!-- END Tickets --> */}
         </div>
       </div>
