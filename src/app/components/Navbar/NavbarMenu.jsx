@@ -6,7 +6,7 @@ export default function NavbarMenu() {
   const url = useSearchParams();
 
   return (
-    <nav className="hidden items-center gap-2 lg:flex">
+    <nav className="items-center gap-2 sm:hidden md:flex lg:flex">
       {itemsMenu.map((item) => (
         <NavbarItem
           key={item.title}

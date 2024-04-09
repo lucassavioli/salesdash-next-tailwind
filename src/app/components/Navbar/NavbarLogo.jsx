@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { IconBrandCodesandbox } from "@tabler/icons-react";
 export default function NavbarLogo() {
   return (
-    <a
-      href="#"
+    <Link
+      href="/"
       className="group inline-flex items-center gap-1.5 text-lg font-bold tracking-wide text-neutral-900 hover:text-neutral-600"
     >
       <IconBrandCodesandbox
@@ -12,6 +13,6 @@ export default function NavbarLogo() {
       <span>
         Sales<span className="font-normal">Dash</span>
       </span>
-    </a>
+    </Link>
   );
 }

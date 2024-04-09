@@ -21,8 +21,7 @@ export default function Customers() {
         );
         const data = await response.json();
         setData(data);
-        setLoading(false);
-        console.log(data.totalPages);
+        setLoading(false);        
       } catch (error) {
         console.error("Error fetching data: ", error);
         setLoading(false);
@@ -38,7 +37,7 @@ export default function Customers() {
   return (
     <main id="page-content" className="flex max-w-full flex-auto flex-col">
       {/* <!-- Page Heading --> */}
-      <Heading title="Dashboard" subtitle="Welcome to your dashboard" />
+      <Heading title="Customers" subtitle="Here you can see all customers" />
       {/* <!-- END Page Heading --> */}
 
       {/* <!-- Page Section --> */}
