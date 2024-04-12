@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Bar, Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import options from "@/app/utils/chart-options";
 import {
   Chart as ChartJS,
@@ -33,25 +33,25 @@ import {
   IconWorld
 } from "@tabler/icons-react";
 
-export default function CustomersDashboard() {
+export default function SalesDashboard() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
-  const chartData = {
-    labels: data?.customerCountByAge.map((item) => item.age),
-    datasets: [
-      {
-        label: "",
-        data: data?.customerCountByAge.map((item) => item.count),
-        backgroundColor: "rgba(243, 232, 255, 1.0)",
-      },
-    ],
-  };
+//   const chartData = {
+//     labels: data?.customerCountByAge.map((item) => item.age),
+//     datasets: [
+//       {
+//         label: "",
+//         data: data?.customerCountByAge.map((item) => item.count),
+//         backgroundColor: "rgba(243, 232, 255, 1.0)",
+//       },
+//     ],
+//   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/customers");
+        const response = await fetch("http://localhost:5000/api/sales");
         const data = await response.json();        
         setData(data);
         setLoading(false);
@@ -70,7 +70,7 @@ export default function CustomersDashboard() {
   return (
     <main id="page-content" className="flex max-w-full flex-auto flex-col">
       {/* <!-- Page Heading --> */}
-      <Heading title="Customers" subtitle="Check out your customers" />
+      <Heading title="Sales" subtitle="Check out your sales" />
       {/* <!-- END Page Heading --> */}
 
       {/* <!-- Page Section --> */}
@@ -78,39 +78,39 @@ export default function CustomersDashboard() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {/* <!-- Quick Statistics --> */}
           <StatusItem
-            value={data.totalNumberOfCustomers}
-            label="Customers"
-            description="Total number of customers"
+            value={data.totalSales}
+            label="Sales"
+            description="Total number of sales"
           >
             <IconUsersGroup size={26} />
           </StatusItem>
           <StatusItem
-            value={data.customerCountByGender[1].count}
-            label="Male Customers"
+            value={data.totalSalesUsingCoupon}
+            label="Coupons"
             icon="none"
-            description="Total number of male customers"
+            description="Used on sales"
           >
             <IconUsers size={26} />
           </StatusItem>
           <StatusItem
-            value={data.customerCountByGender[0].count}
-            label="Female Customers"
+            value={data.totalSalesOnline}
+            label="Sales"
             icon="none"
-            description="Total number of female customers"
+            description="Online Sales"
           >
             <IconUsers size={26} />
           </StatusItem>
           <StatusItem
-            value={data.totalNumberOfCountries}
-            label="Countries"
+            value={data.totalStoreLocations}
+            label="Locations"
             icon="none"
-            description="Where customers are from"
+            description="Store locations"
           >
             <IconWorld size={26} />
           </StatusItem>
           {/* <!-- END Quick Statistics --> */}
 
-          <div className="flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white hover:bg-zinc-50/50 active:border-purple-200 lg:col-span-2">
+          {/* <div className="flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white hover:bg-zinc-50/50 active:border-purple-200 lg:col-span-2">
             <ChartHeaderWrapper title="Customers" description="By Age">
               <Bar data={chartData} options={options} />
             </ChartHeaderWrapper>
@@ -122,14 +122,14 @@ export default function CustomersDashboard() {
                 <Bar data={chartData} options={options} />
               </div>
             </ChartHeaderWrapper>
-          </div>
+          </div> */}
 
           {/* <!-- Table Title --> */}
           <div className="flex flex-col rounded-lg border bg-white sm:col-span-2 lg:col-span-4">
             <div className="flex flex-col items-center justify-between gap-4 border-b border-neutral-100 p-5 text-center sm:flex-row sm:text-start">
               <TableTitle
-                title="Recent Customers"
-                description="All open tickets"
+                title="Recent Sales"
+                description="Top 10 of recent sales"
                 btnName="View All"
               />
             </div>
@@ -141,11 +141,11 @@ export default function CustomersDashboard() {
                   {/* <!-- Table Header --> */}
                   <thead>
                     <tr className="border-b-2 border-neutral-100">
-                      <TableHeader title="Customer ID" />
-                      <TableHeader title="First Name" />
-                      <TableHeader title="Last Name" />
-                      <TableHeader title="Age" />
-                      <TableHeader title="Country" />
+                      <TableHeader title="Sales ID" />
+                      <TableHeader title="Date" />
+                      <TableHeader title="Store Location" />
+                      <TableHeader title="Purchase Method" />
+                      <TableHeader title="Total" />
                       <TableHeader title="" />
                     </tr>
                   </thead>
@@ -153,19 +153,19 @@ export default function CustomersDashboard() {
 
                   {/* <!-- Table Body --> */}
                   <tbody>
-                    {data.customerTable.map((customer) => (
+                    {data.latestSales.map((sales) => (
                       <tr
-                        key={customer._id}
+                        key={sales._id}
                         className="border-b border-neutral-100 hover:bg-neutral-50"
                       >
-                        <TableData value={customer._id} />
-                        <TableData value={customer.first_name} />
-                        <TableData value={customer.last_name} />
-                        <TableData value={customer.age} />
-                        <TableData value={customer.country} />
+                        <TableData value={sales._id} />
+                        <TableData value={sales.saleDate} />
+                        <TableData value={sales.storeLocation} />
+                        <TableData value={sales.purchaseMethod} />
+                        <TableData value={sales.total.$numberDecimal} />
                         <ButtonTable
                           title="View"
-                          href={`/customers/detail/${customer._id}`}
+                          href="/"
                         />
                       </tr>
                     ))}
