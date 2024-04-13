@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Input from "@/app/components/Form/Input";
 import Label from "@/app/components/Form/Label";
 import Heading from "@/app/components/Heading/Heading";
+import { formatFormLabels } from "@/app/utils/formatFormLabels";
 
 export default function CustomerDetail() {
   const params = useParams();
@@ -53,7 +54,7 @@ export default function CustomerDetail() {
                     {Object.keys(data).map((key, index) => {
                       return (
                         <div className="w-full" key={index}>
-                          <Label title={key} />
+                          <Label title={formatFormLabels(key)} />
                           <Input value={data[key]} />
                         </div>
                       );

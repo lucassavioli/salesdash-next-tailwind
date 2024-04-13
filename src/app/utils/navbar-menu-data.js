@@ -1,5 +1,4 @@
-const itemsMenu = [
-  { title: "Dashboard", href: "/dashboard" },
+const itemsMenu = [  
   { title: "Sales", href: "/sales" },
   { title: "Customers", href: "/customers" },
 ];
