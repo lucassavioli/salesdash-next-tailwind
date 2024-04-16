@@ -129,7 +129,7 @@ export default function SalesDashboard() {
             <div className="flex flex-col items-center justify-between gap-4 border-b border-neutral-100 p-5 text-center sm:flex-row sm:text-start">
               <TableTitle
                 title="Recent Sales"
-                description="Top 10 of recent sales"
+                description="Top 10 of recent sales"                
                 btnName="View All"
               />
             </div>
@@ -159,13 +159,13 @@ export default function SalesDashboard() {
                         className="border-b border-neutral-100 hover:bg-neutral-50"
                       >
                         <TableData value={sales._id} />
-                        <TableData value={sales.saleDate} />
-                        <TableData value={sales.storeLocation} />
-                        <TableData value={sales.purchaseMethod} />
+                        <TableData value={sales.sale_date} />
+                        <TableData value={sales.store_location} />
+                        <TableData value={sales.purchase_method} />
                         <TableData value={sales.total.$numberDecimal} />
                         <ButtonTable
                           title="View"
-                          href="/"
+                          href={`/sales/detail/${sales._id}`}
                         />
                       </tr>
                     ))}
