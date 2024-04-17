@@ -25,7 +25,7 @@ import StatusItem from "@/app/components/StatusItem/StatusItem";
 import TableTitle from "@/app/components/TableTitle/TableTitle";
 import TableHeader from "@/app/components/TableHeader/TableHeader";
 import TableData from "@/app/components/TableData/TableData";
-import ButtonTable from "@/app/components/UI/ButtonTable";
+import Button from "@/app/components/UI/Button";
 import ChartHeaderWrapper from "@/app/components/ChartHeaderWrapper/ChartHeaderWrapper";
 import {
   IconUsersGroup,
@@ -131,7 +131,7 @@ export default function CustomersDashboard() {
                 title="Recent Customers"
                 description="All recent customers"
               > 
-                <ButtonTable title="View All" href="/customers/1" />
+                <Button title="View All" href="/customers/1" />
               </TableTitle>
             </div>
             <div className="p-5">
@@ -164,7 +164,7 @@ export default function CustomersDashboard() {
                         <TableData value={customer.last_name} />
                         <TableData value={customer.age} />
                         <TableData value={customer.country} />
-                        <ButtonTable
+                        <Button
                           title="View"
                           href={`/customers/detail/${customer._id}`}
                         />

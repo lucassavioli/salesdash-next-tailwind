@@ -1,7 +1,7 @@
 import { IconChevronRight } from "@tabler/icons-react";
 import Link from "next/link";
 
-export default function ButtonTable({ title, href }) {
+export default function Button({ title, href }) {
   return (
     <td className="p-3 text-end font-medium">
       <Link

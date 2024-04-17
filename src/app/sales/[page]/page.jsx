@@ -17,11 +17,11 @@ export default function Customers() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/customers/" + params.page
+          "http://localhost:5000/api/sales/" + params.page
         );
         const data = await response.json();
         setData(data);
-        setLoading(false);        
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data: ", error);
         setLoading(false);
@@ -37,7 +37,7 @@ export default function Customers() {
   return (
     <main id="page-content" className="flex max-w-full flex-auto flex-col">
       {/* <!-- Page Heading --> */}
-      <Heading title="Customers" subtitle="Here you can see all customers" />
+      <Heading title="Sales" subtitle="Know more about your sales" />
       {/* <!-- END Page Heading --> */}
 
       {/* <!-- Page Section --> */}
@@ -47,10 +47,9 @@ export default function Customers() {
           <div className="flex flex-col rounded-lg border bg-white sm:col-span-2 lg:col-span-4">
             <div className="flex flex-col items-center justify-between gap-4 border-b border-neutral-100 p-5 text-center sm:flex-row sm:text-start">
               <TableTitle
-                title="Recent Sales"
-                description="All open tickets"                
-              >                
-              </TableTitle>
+                title="Sales"
+                description="All Sales"
+              ></TableTitle>
             </div>
             <div className="p-5">
               {/* <!-- Responsive Table Container --> */}
@@ -60,11 +59,11 @@ export default function Customers() {
                   {/* <!-- Table Header --> */}
                   <thead>
                     <tr className="border-b-2 border-neutral-100">
-                      <TableHeader title="Customer ID" />
-                      <TableHeader title="First Name" />
-                      <TableHeader title="Last Name" />
-                      <TableHeader title="Age" />
-                      <TableHeader title="Country" />
+                      <TableHeader title="Sales ID" />
+                      <TableHeader title="Date" />
+                      <TableHeader title="Store Location" />
+                      <TableHeader title="Purchase Method" />
+                      <TableHeader title="Total" />
                       <TableHeader title="" />
                     </tr>
                   </thead>
@@ -72,19 +71,19 @@ export default function Customers() {
 
                   {/* <!-- Table Body --> */}
                   <tbody>
-                    {data.customers.map((customer) => (
+                    {data.sales.map((sale) => (
                       <tr
-                        key={customer._id}
+                        key={sale._id}
                         className="border-b border-neutral-100 hover:bg-neutral-50"
                       >
-                        <TableData value={customer._id} />
-                        <TableData value={customer.name} />
-                        <TableData value={customer.last_name} />
-                        <TableData value={customer.age} />
-                        <TableData value={customer.country} />
+                        <TableData value={sale._id} />
+                        <TableData value={sale.sale_date} />
+                        <TableData value={sale.store_location} />
+                        <TableData value={sale.purchase_method} />
+                        <TableData value={sale.total.$numberDecimal} />
                         <Button
                           title="View"
-                          href={`/customers/detail/${customer._id}`}
+                          href={`/sales/detail/${sale._id}`}
                         />
                       </tr>
                     ))}
@@ -99,7 +98,7 @@ export default function Customers() {
           <Pagination
             currentPage={params.page}
             lastPage={data.totalPages}
-            href={"/customers/"}
+            href={"/sales/"}
           />
           {/* <!-- END Tickets --> */}
         </div>

@@ -25,7 +25,7 @@ import StatusItem from "@/app/components/StatusItem/StatusItem";
 import TableTitle from "@/app/components/TableTitle/TableTitle";
 import TableHeader from "@/app/components/TableHeader/TableHeader";
 import TableData from "@/app/components/TableData/TableData";
-import ButtonTable from "@/app/components/UI/ButtonTable";
+import Button from "@/app/components/UI/Button";
 import ChartHeaderWrapper from "@/app/components/ChartHeaderWrapper/ChartHeaderWrapper";
 import { IconUsersGroup, IconUsers, IconWorld } from "@tabler/icons-react";
 
@@ -127,7 +127,7 @@ export default function SalesDashboard() {
                 title="Recent Sales"
                 description="Top 10 of recent sales"
               >
-                <ButtonTable title="View All" href="/sales/1" />
+                <Button title="View All" href="/sales/1" />
               </TableTitle>
             </div>
             <div className="p-5">
@@ -160,7 +160,7 @@ export default function SalesDashboard() {
                         <TableData value={sales.store_location} />
                         <TableData value={sales.purchase_method} />
                         <TableData value={sales.total.$numberDecimal} />
-                        <ButtonTable
+                        <Button
                           title="View"
                           href={`/sales/detail/${sales._id}`}
                         />
