@@ -27,32 +27,28 @@ import TableHeader from "@/app/components/TableHeader/TableHeader";
 import TableData from "@/app/components/TableData/TableData";
 import ButtonTable from "@/app/components/UI/ButtonTable";
 import ChartHeaderWrapper from "@/app/components/ChartHeaderWrapper/ChartHeaderWrapper";
-import {
-  IconUsersGroup,
-  IconUsers,
-  IconWorld
-} from "@tabler/icons-react";
+import { IconUsersGroup, IconUsers, IconWorld } from "@tabler/icons-react";
 
 export default function SalesDashboard() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
-//   const chartData = {
-//     labels: data?.customerCountByAge.map((item) => item.age),
-//     datasets: [
-//       {
-//         label: "",
-//         data: data?.customerCountByAge.map((item) => item.count),
-//         backgroundColor: "rgba(243, 232, 255, 1.0)",
-//       },
-//     ],
-//   };
+  //   const chartData = {
+  //     labels: data?.customerCountByAge.map((item) => item.age),
+  //     datasets: [
+  //       {
+  //         label: "",
+  //         data: data?.customerCountByAge.map((item) => item.count),
+  //         backgroundColor: "rgba(243, 232, 255, 1.0)",
+  //       },
+  //     ],
+  //   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:5000/api/sales");
-        const data = await response.json();        
+        const data = await response.json();
         setData(data);
         setLoading(false);
       } catch (error) {
@@ -129,9 +125,10 @@ export default function SalesDashboard() {
             <div className="flex flex-col items-center justify-between gap-4 border-b border-neutral-100 p-5 text-center sm:flex-row sm:text-start">
               <TableTitle
                 title="Recent Sales"
-                description="Top 10 of recent sales"                
-                btnName="View All"
-              />
+                description="Top 10 of recent sales"
+              >
+                <ButtonTable title="View All" href="/sales/1" />
+              </TableTitle>
             </div>
             <div className="p-5">
               {/* <!-- Responsive Table Container --> */}

@@ -48,9 +48,9 @@ export default function Customers() {
             <div className="flex flex-col items-center justify-between gap-4 border-b border-neutral-100 p-5 text-center sm:flex-row sm:text-start">
               <TableTitle
                 title="Recent Sales"
-                description="All open tickets"
-                btnName="View All"
-              />
+                description="All open tickets"                
+              >                
+              </TableTitle>
             </div>
             <div className="p-5">
               {/* <!-- Responsive Table Container --> */}
