@@ -34,10 +34,10 @@ export default function CustomersDashboard() {
   const [isLoading, setLoading] = useState(true);
 
   const chartData = {
-    labels: data?.customerCountByAge.map((item) => item.age),
+    labels: data?.customerCountByAge.map((item) => "Age: " + item.age),
     datasets: [
       {
-        label: "",
+        label: "Quantity",
         data: data?.customerCountByAge.map((item) => item.count),
         backgroundColor: "rgba(243, 232, 255, 1.0)",
       },
@@ -106,17 +106,9 @@ export default function CustomersDashboard() {
           </StatusItem>
           {/* <!-- END Quick Statistics --> */}
 
-          <div className="flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white hover:bg-zinc-50/50 active:border-purple-200 lg:col-span-2">
+          <div className="flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white hover:bg-zinc-50/50 active:border-purple-200 lg:col-span-4">
             <ChartHeaderWrapper title="Customers" description="By Age">
               <Bar data={chartData} options={options} />
-            </ChartHeaderWrapper>
-          </div>
-
-          <div className="flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white hover:bg-zinc-50/50 active:border-purple-200 lg:col-span-2">
-            <ChartHeaderWrapper title="Customers" description="By Age">
-              <div className="w-auto">
-                <Bar data={chartData} options={options} />
-              </div>
             </ChartHeaderWrapper>
           </div>
 

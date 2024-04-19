@@ -7,6 +7,7 @@ import TableHeader from "@/app/components/TableHeader/TableHeader";
 import TableData from "@/app/components/TableData/TableData";
 import Pagination from "@/app/components/Pagination/Pagination";
 import Button from "@/app/components/UI/Button";
+import { formatCurrency, formatDate } from "@/app/utils/formatting";
 
 export default function Customers() {
   const params = useParams();
@@ -77,10 +78,10 @@ export default function Customers() {
                         className="border-b border-neutral-100 hover:bg-neutral-50"
                       >
                         <TableData value={sale._id} />
-                        <TableData value={sale.sale_date} />
+                        <TableData value={formatDate(sale.sale_date)} />
                         <TableData value={sale.store_location} />
                         <TableData value={sale.purchase_method} />
-                        <TableData value={sale.total.$numberDecimal} />
+                        <TableData value={formatCurrency(sale.total.$numberDecimal)} />
                         <Button
                           title="View"
                           href={`/sales/detail/${sale._id}`}

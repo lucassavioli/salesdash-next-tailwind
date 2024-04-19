@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Input from "@/app/components/Form/Input";
 import Label from "@/app/components/Form/Label";
 import Heading from "@/app/components/Heading/Heading";
-import { formatFormLabels } from "@/app/utils/formatFormLabels";
+import { formatFormLabels } from "@/app/utils/formatting";
 
 export default function CustomerDetail() {
   const params = useParams();
