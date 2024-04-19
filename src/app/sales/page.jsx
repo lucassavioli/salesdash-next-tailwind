@@ -28,6 +28,7 @@ import TableData from "@/app/components/TableData/TableData";
 import Button from "@/app/components/UI/Button";
 import ChartHeaderWrapper from "@/app/components/ChartHeaderWrapper/ChartHeaderWrapper";
 import { IconUsersGroup, IconUsers, IconWorld } from "@tabler/icons-react";
+import { formatDate, formatCurrency } from "@/app/utils/formatting";
 
 export default function SalesDashboard() {
   const [data, setData] = useState(null);
@@ -156,10 +157,10 @@ export default function SalesDashboard() {
                         className="border-b border-neutral-100 hover:bg-neutral-50"
                       >
                         <TableData value={sales._id} />
-                        <TableData value={sales.sale_date} />
+                        <TableData value={formatDate(sales.sale_date)} />
                         <TableData value={sales.store_location} />
                         <TableData value={sales.purchase_method} />
-                        <TableData value={sales.total.$numberDecimal} />
+                        <TableData value={formatCurrency(sales.total.$numberDecimal)} />
                         <Button
                           title="View"
                           href={`/sales/detail/${sales._id}`}

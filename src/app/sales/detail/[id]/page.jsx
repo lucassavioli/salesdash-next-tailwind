@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Input from "@/app/components/Form/Input";
 import Label from "@/app/components/Form/Label";
 import Heading from "@/app/components/Heading/Heading";
-import { formatFormLabels } from "@/app/utils/formatFormLabels";
+import { formatFormLabels, formatDate } from "@/app/utils/formatting";
 
 export default function SalesDetail() {
   const params = useParams();
@@ -17,7 +17,7 @@ export default function SalesDetail() {
           "http://localhost:5000/api/sales/detail/" + params.id
         );
         const data = await response.json();
-        setData(data);                
+        setData(data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -34,10 +34,7 @@ export default function SalesDetail() {
   return (
     <main id="page-content" className="flex max-w-full flex-auto flex-col">
       {/* <!-- Page Heading --> */}
-      <Heading
-        title="Sales Details"
-        subtitle="Take a look at sales details"
-      />
+      <Heading title="Sales Details" subtitle="Take a look at sales details" />
       {/* <!-- END Page Heading --> */}
 
       {/* <!-- Page Section --> */}
@@ -51,11 +48,15 @@ export default function SalesDetail() {
                 {/* <!-- Alternate Responsive Table --> */}
                 <div className="p-16">
                   <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                    {Object.entries(data).map(([key, value]) => {                      
+                    {Object.entries(data).map(([key, value]) => {
                       return (
                         <div className="w-full" key={value}>
                           <Label title={formatFormLabels(key)} />
-                          <Input value={value} />
+                          <Input
+                            value={
+                              key === "sale_date" ? formatDate(value) : value
+                            }
+                          />
                         </div>
                       );
                     })}

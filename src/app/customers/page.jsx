@@ -27,11 +27,7 @@ import TableHeader from "@/app/components/TableHeader/TableHeader";
 import TableData from "@/app/components/TableData/TableData";
 import Button from "@/app/components/UI/Button";
 import ChartHeaderWrapper from "@/app/components/ChartHeaderWrapper/ChartHeaderWrapper";
-import {
-  IconUsersGroup,
-  IconUsers,
-  IconWorld
-} from "@tabler/icons-react";
+import { IconUsersGroup, IconUsers, IconWorld } from "@tabler/icons-react";
 
 export default function CustomersDashboard() {
   const [data, setData] = useState(null);
@@ -52,7 +48,7 @@ export default function CustomersDashboard() {
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:5000/api/customers");
-        const data = await response.json();        
+        const data = await response.json();
         setData(data);
         setLoading(false);
       } catch (error) {
@@ -130,7 +126,7 @@ export default function CustomersDashboard() {
               <TableTitle
                 title="Recent Customers"
                 description="All recent customers"
-              > 
+              >
                 <Button title="View All" href="/customers/1" />
               </TableTitle>
             </div>
