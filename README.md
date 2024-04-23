@@ -1,6 +1,8 @@
 # SalesDash NextJs
 This is a dashboard implementation using NextJS and Tailwind CSS. The project uses the [Node Express API](https://github.com/lucassavioli/salesdash-node-backend) to fetch data from a MongoDB database.
 
+![Screenshot from 2024-04-23 12-48-26](https://github.com/lucassavioli/salesdash-next-tailwind/assets/26097753/79af86f9-b64b-4cb3-b8a8-c531c55a2614)
+
 ## Running the project
 
 To run the development server:
